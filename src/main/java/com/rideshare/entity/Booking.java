@@ -20,12 +20,12 @@ public class Booking {
     
     @ManyToOne
     @JoinColumn(name = "ride_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("ride-bookings")  // ← Match the name
     private Ride ride;
-    
+
     @ManyToOne
     @JoinColumn(name = "passenger_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("passenger-bookings")  // ← Add name
     private Passenger passenger;
     
     @Min(value = 1, message = "Au moins 1 place doit être réservée")

@@ -40,10 +40,10 @@ public class Driver {
     private Double noteMoyenne = 0.0;
     
     @OneToOne(mappedBy = "driver", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("driver-vehicle")
     private Vehicle vehicle;
     
     @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("driver-rides")
     private List<Ride> rides;
 }

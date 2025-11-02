@@ -38,9 +38,9 @@ public class Vehicle {
     @Max(value = 2025)
     private Integer annee;
     
-    @OneToOne
-    @JoinColumn(name = "driver_id")
-    @JsonBackReference
-    private Driver driver;
+   @OneToOne
+   @JoinColumn(name = "driver_id")
+   @JsonBackReference("driver-vehicle")  // ← Match the name
+   private Driver driver;
 }
 

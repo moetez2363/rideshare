@@ -41,10 +41,10 @@ public class Ride {
     
     @ManyToOne
     @JoinColumn(name = "driver_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("driver-rides")  // ← Match the name
     private Driver driver;
-    
+
     @OneToMany(mappedBy = "ride", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("ride-bookings")  // ← Add name
     private List<Booking> bookings;
 }

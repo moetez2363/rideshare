@@ -37,7 +37,7 @@ public class Passenger {
     @DecimalMax(value = "5.0")
     private Double noteMoyenne = 0.0;
     
-    @OneToMany(mappedBy = "passenger", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<Booking> bookings;
+   @OneToMany(mappedBy = "passenger", cascade = CascadeType.ALL)
+   @JsonManagedReference("passenger-bookings")  // ← Match the name
+   private List<Booking> bookings;
 }
